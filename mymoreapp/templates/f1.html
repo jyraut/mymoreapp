@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello...!| My first Page</h1>
+    <h3>FETCH ALL STUDENTS DETAILS</h2>
+    {% for i in data %}
+    {% if i.image %}
+    <h4>Student Image:</h4>
+        <img src="{{i.image.url}}" width="500px" height="100px" >
+    {% endif %}
+    <p>Name:{{i.name}}</p><br>
+    <p>course:{{i.course}}</p><br>
+    <p>Email:{{i.email}}</p><br>
+    <a href="{% url 'app1:delete' i.id %}">Delete</a>
+    <a href="{% url 'app1:edit' i.id %}">edit</a>
+    <hr>
+    {% endfor %}
+  
+
+    <a href="{% url 'app2:second_page' %}">Click here for second app</a>
+</body>
+</html>
